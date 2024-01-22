@@ -54,7 +54,7 @@ To run the program:
     - For Mac, the `DYLD_LIBRARY_PATH` to the location of the .dylib (e.g. `/<Your_path>/lwjgl-2.9.3/native/macosx`)
     - You can test if the variable has been set correctly, by using `java -XshowSettings:properties` and looking for the `java.library.path` attribute
   - Compile and run the files using `javac -cp <Lwjgl_jar_files> *.java` followed by `java -cp <Lwjgl_jar_files> CoolTreesGenerator`
-    - 
+    - Where the JAR files are located in ...
 
 The controls of the app:
 

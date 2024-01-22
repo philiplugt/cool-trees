@@ -45,16 +45,38 @@ This program is dependent on outdated libraries, so getting it to work can be a 
 
 To run the program:
   - Download the source files
-  - Download and install Java 8. You can check your version with `java -version` or `java --version`
-    - If your default `java` command (as well as `javac`) does not link to Java 8, you can used the binary directly by running Java 8 from it's containing directory (e.g. `/<Your_path_to_Java_8>/../jdk1.8.0_45/../java`)
+  - Download and install Java 8
+    - You can check your version with `java -version` or `java --version` depending on your version.
+    - If your default `java` command (as well as `javac`) does not link to Java 8, run the binary directly from it's containing directory
   - Download LWJGL 2.9.3 and unzip to easy-to-find location
   - Set your OS's environment variable, so that Java can utilize the LWJGL's native libraries:
-    - For Windows, set the `PATH` variable to the folder containing .dll (e.g. `/<Your_path>/lwjgl-2.9./native/windows`)
-    - For Linux, the `LD_LIBRARY_PATH` to the location of the .so (e.g. `/<Your_path>/lwjgl-2.9./native/linux`)
-    - For Mac, the `DYLD_LIBRARY_PATH` to the location of the .dylib (e.g. `/<Your_path>/lwjgl-2.9.3/native/macosx`)
+    - For Windows, set the `PATH` variable to the folder containing .dll files
+    - For Linux, the `LD_LIBRARY_PATH` to the location of the .so files
+    - For Mac, the `DYLD_LIBRARY_PATH` to the location of the .dylib files
     - You can test if the variable has been set correctly, by using `java -XshowSettings:properties` and looking for the `java.library.path` attribute
-  - Compile and run the files using `javac -cp <Lwjgl_jar_files> *.java` followed by `java -cp <Lwjgl_jar_files> CoolTreesGenerator`
-    - Where the JAR files are located in ...
+  - Compile and run the files using `javac -cp <Paths_of_source_and_jar_files> *.java` followed by `java -cp <Paths_of_source_and_jar_files> CoolTreesGenerator`
+
+Sample terminal commands to run Cool Trees on MacOSX:
+```zsh
+# Check for Java 8
+> <Path_to_java_8_binary>/java -version
+> /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/bin/java -version
+
+# Adding natives to environment variable
+# The path is to where you unzipped LWJGL 2.9.3
+> export DYLD_LIBRARY_PATH=<Path_to_lwjgl_natives>/lwjgl-2.9.3/native/macosx  
+
+# Compile and run using Java 8
+> javac -cp <Paths_of_source_and_jar_files> *.java
+> java -cp <Paths_of_source_and_jar_files> CoolTreesGenerator
+
+# <Paths_of_source_and_jar_files> is the path to where Cool Tree source is located,
+# and where you unzipped LWJGL 2.9.3. You will only need lwjgl.jar and lwjgl_util.jar.
+
+# <Paths_of_source_and_jar_files> can be "lib/lwjgl.jar:lwjgl_uitl.jar:source/"
+# where `:` is a separator (use ; for Windows), and "lib" and "source" are the location
+# of the JAR files and source code within your current working directory
+```
 
 The controls of the app:
 
